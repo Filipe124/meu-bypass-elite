@@ -11,8 +11,8 @@ RUN apt-get update && apt-get install -y wget gnupg curl unzip ca-certificates \
 WORKDIR /app
 COPY . .
 
-# Instala as bibliotecas do Python (Corrigido: DrissionPage )
-RUN pip install --no-cache-dir DrissionPage fastapi uvicorn requests
+# Instala as bibliotecas (usando o nome que o pip reconhece universalmente )
+RUN pip install --no-cache-dir DrissionPage==4.0.0b30 fastapi uvicorn requests
 
 EXPOSE 10000
 
