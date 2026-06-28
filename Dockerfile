@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-# Instala dependências iniciais
+# Instala dependências do sistema e Google Chrome
 RUN apt-get update && apt-get install -y wget gnupg curl unzip ca-certificates \
     && install -m 0755 -d /etc/apt/keyrings \
     && curl -fsSL https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /etc/apt/keyrings/google-chrome.gpg \
@@ -11,8 +11,8 @@ RUN apt-get update && apt-get install -y wget gnupg curl unzip ca-certificates \
 WORKDIR /app
 COPY . .
 
-# Instala as bibliotecas do Python
-RUN pip install --no-cache-dir drission-page fastapi uvicorn requests
+# Instala as bibliotecas do Python (Corrigido: DrissionPage )
+RUN pip install --no-cache-dir DrissionPage fastapi uvicorn requests
 
 EXPOSE 10000
 
