@@ -1,0 +1,4 @@
+drission-page
+fastapi
+uvicorn
+requests
